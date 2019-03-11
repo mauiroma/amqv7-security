@@ -1,0 +1,77 @@
+version: 1
+
+dn: ou=Users,{{ LDAP_BASE_DN }}
+objectClass: organizationalUnit
+objectClass: top
+ou: Users
+
+dn: ou=AMQGroups,{{ LDAP_BASE_DN }}
+objectClass: organizationalUnit
+objectClass: top
+ou: Groups
+
+dn: cn=Administrator,ou=AMQGroups,{{ LDAP_BASE_DN }}
+objectClass: groupOfNames
+objectClass: top
+cn: Administrator
+member: uid=mromani,ou=Users,{{ LDAP_BASE_DN }}
+
+dn: cn=p_rh_jboss_queue,ou=AMQGroups,{{ LDAP_BASE_DN }}
+objectClass: groupOfNames
+objectClass: top
+cn: p_rh_jboss_queue
+member: uid=appproducer,ou=Users,{{ LDAP_BASE_DN }}
+
+dn: cn=c_rh_jboss_queue,ou=AMQGroups,{{ LDAP_BASE_DN }}
+objectClass: groupOfNames
+objectClass: top
+cn: c_rh_jboss_queue
+member: uid=appconsumer,ou=Users,{{ LDAP_BASE_DN }}
+
+dn: cn=pc_rh_jboss,ou=AMQGroups,{{ LDAP_BASE_DN }}
+objectClass: groupOfNames
+objectClass: top
+cn: pc_rh_jboss
+member: uid=appuser,ou=Users,{{ LDAP_BASE_DN }}
+
+
+dn: uid=mromani,ou=Users,{{ LDAP_BASE_DN }}
+objectClass: organizationalPerson
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: top
+cn: Maurizio
+sn: Romani
+title: cn=Administrator,ou=AMQGroups,{{ LDAP_BASE_DN }}
+uid: mromani
+userPassword: password
+
+dn: uid=appconsumer,ou=Users,{{ LDAP_BASE_DN }}
+objectClass: organizationalPerson
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: top
+cn: Consumer
+sn: Consumer user
+uid: appconsumer
+userPassword: password
+
+dn: uid=appproducer,ou=Users,{{ LDAP_BASE_DN }}
+objectClass: organizationalPerson
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: top
+cn: Producer
+sn: Producer
+uid: appproducer
+userPassword: password
+
+dn: uid=appuser,ou=Users,{{ LDAP_BASE_DN }}
+objectClass: organizationalPerson
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: top
+cn: ProducerConsumer
+sn: ProducerConsumer
+uid: appuser
+userPassword: password
